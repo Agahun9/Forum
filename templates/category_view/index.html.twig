@@ -5,7 +5,7 @@
 {% block body %}
 
 
-    {% for ids in id %}
-        {{ ids.name }}
+    {% for topic in topics %}
+        <a href="topic/{{ topic.id }}">{{ topic.name }}</a><br>
     {% endfor %}
 {% endblock %}
