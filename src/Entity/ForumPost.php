@@ -30,7 +30,7 @@ class ForumPost
     private $Topic;
 
     /**
-     * @ORM\Column(type="dateinterval")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 
@@ -63,12 +63,12 @@ class ForumPost
         return $this;
     }
 
-    public function getDate(): ?\DateInterval
+    public function getDate(): ?\DateTime
     {
         return $this->date;
     }
 
-    public function setDate(\DateInterval $date): self
+    public function setDate(\DateTime $date): self
     {
         $this->date = $date;
 
