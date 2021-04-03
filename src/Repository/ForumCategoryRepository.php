@@ -22,19 +22,14 @@ class ForumCategoryRepository extends ServiceEntityRepository
     // /**
     //  * @return ForumCategory[] Returns an array of ForumCategory objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function ShowCategories()
     {
-        return $this->createQueryBuilder('f')
-            ->andWhere('f.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('f.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('u')
             ->getQuery()
-            ->getResult()
         ;
     }
-    */
+
 
     /*
     public function findOneBySomeField($value): ?ForumCategory

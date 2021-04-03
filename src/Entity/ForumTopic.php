@@ -25,7 +25,7 @@ class ForumTopic
     private $name;
 
     /**
-     * @ORM\Column(type="dateinterval")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 
