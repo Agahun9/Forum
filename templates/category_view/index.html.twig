@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryViewController!{% endblock %}
+
+{% block body %}
+
+
+    {% for ids in id %}
+        {{ ids.name }}
+    {% endfor %}
+{% endblock %}

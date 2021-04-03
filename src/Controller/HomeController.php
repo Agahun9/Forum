@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-//            'categories' => $forumCategoryRepository->findAll()
+            'categories' => $forumCategoryRepository->findAll()
         ]);
     }
 }
