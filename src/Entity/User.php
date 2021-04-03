@@ -48,15 +48,17 @@ class User implements UserInterface
      */
     private $forumTopics;
 
-    /**
-     * @ORM\OneToMany(targetEntity=ForumPost::class, mappedBy="post")
-     */
-    private $forumPosts;
+
 
     /**
      * @ORM\Column(type="boolean")
      */
     private $isVerified = false;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ForumPost::class, mappedBy="user")
+     */
+    private $forumPosts;
 
     public function __construct()
     {
@@ -215,6 +217,21 @@ class User implements UserInterface
         return $this;
     }
 
+
+
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setIsVerified(bool $isVerified): self
+    {
+        $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
     /**
      * @return Collection|ForumPost[]
      */
@@ -227,7 +244,7 @@ class User implements UserInterface
     {
         if (!$this->forumPosts->contains($forumPost)) {
             $this->forumPosts[] = $forumPost;
-            $forumPost->setPost($this);
+            $forumPost->setUser($this);
         }
 
         return $this;
@@ -237,22 +254,10 @@ class User implements UserInterface
     {
         if ($this->forumPosts->removeElement($forumPost)) {
             // set the owning side to null (unless already changed)
-            if ($forumPost->getPost() === $this) {
-                $forumPost->setPost(null);
+            if ($forumPost->getUser() === $this) {
+                $forumPost->setUser(null);
             }
         }
-
-        return $this;
-    }
-
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
-
-    public function setIsVerified(bool $isVerified): self
-    {
-        $this->isVerified = $isVerified;
 
         return $this;
     }

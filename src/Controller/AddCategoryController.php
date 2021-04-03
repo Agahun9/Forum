@@ -33,7 +33,7 @@ class AddCategoryController extends AbstractController
 
         }
 
-        return $this->render('add_form_topic/index.html.twig', [
+        return $this->render('add/category.html.twig', [
             'controller_name' => 'AddFormTopicController',
             'addcategory'=>$form->createView(),
         ]);

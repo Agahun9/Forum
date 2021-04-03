@@ -36,7 +36,7 @@ class AddTopicController extends AbstractController
 
         }
 
-        return $this->render('add_form_topic/index.html.twig', [
+        return $this->render('add/topic.html.twig', [
             'addtopic'=>$form->createView(),
         ]);
     }

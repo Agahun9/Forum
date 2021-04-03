@@ -17,11 +17,6 @@ class ForumPost
      */
     private $id;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="forumPosts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $post;
 
     /**
      * @ORM\ManyToOne(targetEntity=ForumTopic::class, inversedBy="forumPosts")
@@ -34,22 +29,23 @@ class ForumPost
      */
     private $date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="forumPosts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $post;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPost(): ?user
-    {
-        return $this->post;
-    }
 
-    public function setPost(?user $post): self
-    {
-        $this->post = $post;
-
-        return $this;
-    }
 
     public function getTopic(): ?ForumTopic
     {
@@ -71,6 +67,30 @@ class ForumPost
     public function setDate(\DateTime $date): self
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPost(): ?string
+    {
+        return $this->post;
+    }
+
+    public function setPost(string $post): self
+    {
+        $this->post = $post;
 
         return $this;
     }
