@@ -30,7 +30,7 @@ class AddCategoryController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($category);
             $entityManager->flush();
-
+            return $this->redirectToRoute('home');
         }
 
         return $this->render('add/category.html.twig', [

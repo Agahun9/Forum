@@ -34,6 +34,7 @@ class PostViewController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($post);
             $entityManager->flush();
+            return $this->redirect($request->getUri());
 
         }
 

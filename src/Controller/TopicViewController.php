@@ -15,7 +15,8 @@ class TopicViewController extends AbstractController
     public function index(int $id,ForumTopicRepository $forumTopicRepository): Response
     {
         return $this->render('category_view/index.html.twig', [
-            'topics'=>$forumTopicRepository->findBy(['category'=>$id])
+            'topics'=>$forumTopicRepository->findBy(['category'=>$id]),
+            'id'=>$id
         ]);
     }
 }

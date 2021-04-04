@@ -33,6 +33,7 @@ class AddTopicController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($topic);
             $entityManager->flush();
+            return $this->redirect('/category/'.$id);
 
         }
 

@@ -3,7 +3,7 @@
 {% block title %}Hello CategoryViewController!{% endblock %}
 
 {% block body %}
-
+    <a href="/addtopic/{{ id }}">add topic</a><br><br>
 
     {% for topic in topics %}
         <a href="/topic/{{ topic.id }}">{{ topic.name }}</a><br>
